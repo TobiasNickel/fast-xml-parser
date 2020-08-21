@@ -270,19 +270,19 @@ With the correct options, you can get the almost original XML without losing any
 
 #### XML to JSON
 
-![npm_xml2json_compare](static/img/fxpv3-vs-xml2jsv0419_chart.png)
+<!-- ![npm_xml2json_compare](static/img/fxpv3-vs-xml2jsv0419_chart.png) -->
 
 <details>
 	<summary>report</summary>
 
-| file size | fxp 3.0 validator (rps) | fxp 3.0 parser (rps) | xml2js 0.4.19 (rps) |
-| ---------- | ----------------------- | ------------------- | ------------------- |
-| 1.5k | 16581.06758 | 14032.09323 | 4615.930805 |
-| 1.5m | 14918.47793 | 13.23366098 | 5.90682005 |
-| 13m | 1.834479235 | 1.135582008 | -1 |
-| 1.3k with CDATA | 30583.35319 | 43160.52342 | 8398.556349 |
-| 1.3m with CDATA | 27.29266471 | 52.68877009 | 7.966000795 |
-| 1.6k with cdata,prolog,doctype | 27690.26082 | 41433.98547 | 7872.399268 |
+| file size | fxp 3.0 validator (rps) | fxp 3.0 parser (rps) | xml2js 0.4.19 (rps) | txml (3.2.1) |
+| ---------- | ----------------------- | ------------------- | ------------------- | ------------ |
+| 1.5k | 16581.06758 | 14032.09323 | 4615.930805 | 38236.7487136
+| 1.5m | 14918.47793 | 13.23366098 | 5.90682005 | 40.11212688
+| 13m | 1.834479235 | 1.135582008 | -1 | 2.44386099
+| 1.3k with CDATA | 30583.35319 | 43160.52342 | 8398.556349 | 122555.11376
+| 1.3m with CDATA | 27.29266471 | 52.68877009 | 7.966000795 | 148.700882274
+| 1.6k with cdata,prolog,doctype | 27690.26082 | 41433.98547 | 7872.399268 | 116937.066391 | 103859.426042
 | 98m | 0.08473858148 | 0.2600104004 | -1 |
 
 * -1 indicates error or incorrect output.
