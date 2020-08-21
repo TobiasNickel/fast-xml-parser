@@ -5,15 +5,16 @@ const suite = new Benchmark.Suite("XML Parser benchmark");
 
 const parser = require("../src/parser");
 const xml2js = require("xml2js");
+const xml = require("txml")
 
 const fs = require("fs");
 const path = require("path");
 //const fileNamePath = path.join(__dirname, "../spec/assets/ptest.xml");//with CDATA
-//const fileNamePath = path.join(__dirname, "../spec/assets/ptest_with_prolog.xml");//with CDATA
-const fileNamePath = path.join(__dirname, "../spec/assets/sample.xml");//1.5k
+const fileNamePath = path.join(__dirname, "../spec/assets/ptest_with_prolog.xml");//with CDATA
+//const fileNamePath = path.join(__dirname, "../spec/assets/sample.xml");//1.5k
 //const fileNamePath = path.join(__dirname, "../spec/assets/midsize.xml");//13m
-const xmlData = fs.readFileSync(fileNamePath).toString();
-//xmlData=`<root>${xmlData.repeat(1000)}</root>`;
+var xmlData = fs.readFileSync(fileNamePath).toString();
+// xmlData=`<root>${xmlData.repeat(1000)}</root>`;
 
 suite
     .add("validation", function() {
@@ -38,6 +39,9 @@ suite
             //if(18432 !== result["any_name"]["person"].length) console.log("incorrect length", result["any_name"]["person"].length);
             //if(2 !== result["any_name"]["person"].length) console.log("incorrect length", result["any_name"]["person"].length);
         });
+    })
+    .add("txml", function(){
+        xml(xmlData);
     })
     /* .add('xml2js', {
       'defer': true,
